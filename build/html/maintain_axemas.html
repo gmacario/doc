@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Maintain AXEMAS &mdash; AXEMAS 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="AXEMAS 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Gearbox Extension" href="gearbox_extension.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> AXEMAS
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ios_api.html">iOS API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ios_api.html#declaring-sections">Declaring Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ios_api.html#section-controllers">Section Controllers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android_api.html">Android API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="android_api.html#declaring-sections">Declaring Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android_api.html#section-controllers">Section Controllers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="js_api.html">JavaScript API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="js_api.html#goto">goto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js_api.html#gotofromsidebar">gotoFromSidebar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js_api.html#call">call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js_api.html#alert">alert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js_api.html#dialog">dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js_api.html#showprogresshud">showProgressHUD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js_api.html#hideprogresshud">hideProgressHUD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js_api.html#getplatform">getPlatform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js_api.html#storedata">storeData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js_api.html#fetchdata">fetchData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js_api.html#removedata">removeData</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearbox_extension.html">Gearbox Extension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gearbox_extension.html#installaton">Installaton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gearbox_extension.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gearbox_extension.html#project-structure">Project structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Maintain AXEMAS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#axemas-framework">AXEMAS framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#repositories-structure">Repositories Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debug-projects-update">Debug Projects Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#release-repository-update">Release Repository Update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#android-axemas-library">Android AXEMAS library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-use">How to use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ios-axemas-library">iOS AXEMAS library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#new-release">New Release</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">AXEMAS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Maintain AXEMAS</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/maintain_axemas.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="maintain-axemas">
+<h1>Maintain AXEMAS<a class="headerlink" href="#maintain-axemas" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="axemas-framework">
+<h2>AXEMAS framework<a class="headerlink" href="#axemas-framework" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="repositories-structure">
+<h3>Repositories Structure<a class="headerlink" href="#repositories-structure" title="Permalink to this headline">¶</a></h3>
+<p>The project is divided in 5 repositories:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">website</span>
+<span class="n">examples</span>
+<span class="n">framework</span>
+<span class="n">releases</span>
+<span class="n">doc</span>
+</pre></div>
+</div>
+<p>Inside framework repo (<a class="reference external" href="https://github.com/AXEMAS/framework">https://github.com/AXEMAS/framework</a>) you will find the <code class="docutils literal"><span class="pre">AXEMAS</span></code> base library, composed by:</p>
+<ul class="simple">
+<li>Android library project</li>
+<li>iOS library project</li>
+<li>HTML library project</li>
+</ul>
+<p>When you are done modifing the library please remember to update the debug projects and the release repository
+with the following commands.</p>
+</div>
+<div class="section" id="debug-projects-update">
+<h3>Debug Projects Update<a class="headerlink" href="#debug-projects-update" title="Permalink to this headline">¶</a></h3>
+<p>To update the <code class="docutils literal"><span class="pre">Android</span></code> and the <code class="docutils literal"><span class="pre">iOS</span></code> project use the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>./update_debug
+</pre></div>
+</div>
+<p>Il will delete all the old files in the iOS and Android projects and copy the new library files;
+native binraies and HTML.</p>
+</div>
+<div class="section" id="release-repository-update">
+<h3>Release Repository Update<a class="headerlink" href="#release-repository-update" title="Permalink to this headline">¶</a></h3>
+<p>Same as for the Debug Project Update, this will update the repository that the <code class="docutils literal"><span class="pre">gearbox</span> <span class="pre">axemas-setup</span></code>
+command needs to clone in order to quickstart a new project:</p>
+<div class="highlight-python"><div class="highlight"><pre>./update_release
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="android-axemas-library">
+<h2>Android AXEMAS library<a class="headerlink" href="#android-axemas-library" title="Permalink to this headline">¶</a></h2>
+<p>This library project is used to build the axemas.aar used inside the Android application.</p>
+<div class="section" id="how-to-use">
+<h3>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h3>
+<p>After modifiying the library please inside this project&#8217;s root folder:</p>
+<div class="highlight-python"><div class="highlight"><pre>./gradlew clean assemble
+</pre></div>
+</div>
+<p>You will find the <code class="docutils literal"><span class="pre">app-release.aar</span></code> inside the <code class="docutils literal"><span class="pre">app/build/outputs/aar/</span></code> folder. Copy this file
+inside the <code class="docutils literal"><span class="pre">axemas-android</span></code> project in the <code class="docutils literal"><span class="pre">libs</span></code> folder.</p>
+</div>
+</div>
+<div class="section" id="ios-axemas-library">
+<h2>iOS AXEMAS library<a class="headerlink" href="#ios-axemas-library" title="Permalink to this headline">¶</a></h2>
+<p>This project is used to build the axemas iOS library. Please use the following instructions to make
+a new release.</p>
+<div class="section" id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<p>Install the command line tools, following the instructions at this link:</p>
+<div class="highlight-python"><div class="highlight"><pre>https://developer.apple.com/library/ios/technotes/tn2339/_index.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="new-release">
+<h3>New Release<a class="headerlink" href="#new-release" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Use the following command in the ::</dt>
+<dd>cp ios
+./build_libaxemas</dd>
+</dl>
+<p>In the release directory you will find all the neccessary files to import the project in Xcode.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="gearbox_extension.html" class="btn btn-neutral" title="Gearbox Extension" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, AXANT.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>JavaScript API &mdash; AXEMAS 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="AXEMAS 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Gearbox Extension" href="gearbox_extension.html"/>
+        <link rel="prev" title="Android API" href="android_api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> AXEMAS
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ios_api.html">iOS API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ios_api.html#declaring-sections">Declaring Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ios_api.html#section-controllers">Section Controllers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android_api.html">Android API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="android_api.html#declaring-sections">Declaring Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android_api.html#section-controllers">Section Controllers</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">JavaScript API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#goto">goto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gotofromsidebar">gotoFromSidebar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#call">call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alert">alert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dialog">dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#showprogresshud">showProgressHUD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hideprogresshud">hideProgressHUD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getplatform">getPlatform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#storedata">storeData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fetchdata">fetchData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#removedata">removeData</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearbox_extension.html">Gearbox Extension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gearbox_extension.html#installaton">Installaton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gearbox_extension.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gearbox_extension.html#project-structure">Project structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="maintain_axemas.html">Maintain AXEMAS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="maintain_axemas.html#axemas-framework">AXEMAS framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="maintain_axemas.html#repositories-structure">Repositories Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintain_axemas.html#debug-projects-update">Debug Projects Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintain_axemas.html#release-repository-update">Release Repository Update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="maintain_axemas.html#android-axemas-library">Android AXEMAS library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="maintain_axemas.html#how-to-use">How to use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="maintain_axemas.html#ios-axemas-library">iOS AXEMAS library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="maintain_axemas.html#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintain_axemas.html#new-release">New Release</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">AXEMAS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>JavaScript API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/js_api.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="javascript-api">
+<h1>JavaScript API<a class="headerlink" href="#javascript-api" title="Permalink to this headline">¶</a></h1>
+<p>The JavaScript module <code class="docutils literal"><span class="pre">axemas.js</span></code> permits interaction with the native code of the application:</p>
+<blockquote>
+<div><ul class="simple">
+<li>goto</li>
+<li>gotoFromSidebar</li>
+<li>call</li>
+<li>alert</li>
+<li>dialog</li>
+<li>showProgressHUD</li>
+<li>hideProgressHUD</li>
+<li>getPlatform</li>
+<li>storeData</li>
+<li>fetchData</li>
+<li>removeData</li>
+</ul>
+</div></blockquote>
+<div class="section" id="goto">
+<h2>goto<a class="headerlink" href="#goto" title="Permalink to this headline">¶</a></h2>
+<p>Pushes new <code class="docutils literal"><span class="pre">section</span></code> on the navigation stack. It is the equivalent of the iOS <code class="docutils literal"><span class="pre">[NavigationSectionsManager</span> <span class="pre">goto]</span></code> and Android&#8217;s <code class="docutils literal"><span class="pre">NavigationSectionsManager.goTo()</span></code>.
+All three functions accept a dictionary as <strong>payload</strong> which defines the extra actions the <code class="docutils literal"><span class="pre">goto</span></code> call must execute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">axemas</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span>
+    <span class="p">{</span><span class="s">&quot;url&quot;</span><span class="p">:</span><span class="s">&quot;www/home.html&quot;</span><span class="p">,</span>
+    <span class="s">&quot;title&quot;</span><span class="p">:</span><span class="s">&quot;HOME&quot;</span><span class="p">,</span>
+    <span class="s">&quot;toggleSidebarIcon&quot;</span><span class="p">:</span><span class="s">&quot;slide_icon&quot;</span><span class="p">,</span>
+    <span class="s">&quot;stackMaintainedElements&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;stackPopElements&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>The <strong>payload</strong> structure is shared between JavaScript, Objective C and Java, and accepts the following parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">url</span></code> contains the local or remote address from which the WebView must load the content</li>
+<li><code class="docutils literal"><span class="pre">title</span></code> (optional) is the tile show in the application&#8217;s ViewController / Action Bar.</li>
+<li><code class="docutils literal"><span class="pre">toggleSidebarIcon</span></code> (optional) is the sidebar&#8217;s icon to be displayed and if missing a button to open the sidebar will not be created</li>
+<li><code class="docutils literal"><span class="pre">stackMaintainedElements</span></code> (optional) instructs the navigation stack to pop all views and maintain the last X <code class="docutils literal"><span class="pre">sections</span></code> indicated on the bottom of the stack; it is ill advised to use in conjunction with <code class="docutils literal"><span class="pre">stackPopElements</span></code></li>
+<li><code class="docutils literal"><span class="pre">stackPopElements</span></code> (optional) instructs the navigation stack to pop the first X <code class="docutils literal"><span class="pre">sections</span></code>; it is ill advised to use in conjunction with <code class="docutils literal"><span class="pre">stackMaintainedElements</span></code></li>
+<li><code class="docutils literal"><span class="pre">animation</span></code> (optional) only supported on iOS platform, can be used to change the default push/pop animation in one of <code class="docutils literal"><span class="pre">&quot;fade&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;slidein&quot;</span></code> values</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="gotofromsidebar">
+<h2>gotoFromSidebar<a class="headerlink" href="#gotofromsidebar" title="Permalink to this headline">¶</a></h2>
+<p>Same as <code class="docutils literal"><span class="pre">goto</span></code> but closes the sidebar and must be used only inside the sidebar <code class="docutils literal"><span class="pre">section</span></code>. Refer to <code class="docutils literal"><span class="pre">goto</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">axemas</span><span class="o">.</span><span class="n">gotoFromSidebar</span><span class="p">(</span>
+    <span class="p">{</span><span class="s">&quot;url&quot;</span><span class="p">:</span><span class="s">&quot;www/home.html&quot;</span><span class="p">,</span>
+    <span class="s">&quot;title&quot;</span><span class="p">:</span><span class="s">&quot;HOME&quot;</span><span class="p">,</span>
+    <span class="s">&quot;toggleSidebarIcon&quot;</span><span class="p">:</span><span class="s">&quot;slide_icon&quot;</span><span class="p">,</span>
+    <span class="s">&quot;stackMaintainedElements&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">&quot;stackPopElements&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="call">
+<h2>call<a class="headerlink" href="#call" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">call</span></code> enables JavaScript to execute a native registered handler inside a <code class="docutils literal"><span class="pre">SectionController</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>axemas.call(&#39;openNativeController&#39;);
+
+axemas.call(&#39;execute-and-return&#39;, &#39;{&quot;payload&quot;: &quot;something&quot;}&#39;, function(result) {
+    alert(JSON.strgify(result));
+});
+</pre></div>
+</div>
+</div>
+<div class="section" id="alert">
+<h2>alert<a class="headerlink" href="#alert" title="Permalink to this headline">¶</a></h2>
+<p>Creates a native dismissible alert dialog with a title and a message:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">axemas</span><span class="o">.</span><span class="n">alert</span><span class="p">(</span><span class="s">&#39;Alert title&#39;</span><span class="p">,</span> <span class="s">&quot;Alert message&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dialog">
+<h2>dialog<a class="headerlink" href="#dialog" title="Permalink to this headline">¶</a></h2>
+<p>Generates a native dialog with a title, a message and a maximum of three buttons. When pressing a button a callback returns the button&#8217;s value as integer, range [0-3]:</p>
+<div class="highlight-python"><div class="highlight"><pre>axemas.dialog(&#39;Dialog title&#39;, &#39;Dialog display message&#39;, [&#39;Cancel&#39;, &#39;Ok&#39;],function(data) {
+    axemas.alert(&#39;Pressed button&#39;, data.button);
+});
+</pre></div>
+</div>
+</div>
+<div class="section" id="showprogresshud">
+<h2>showProgressHUD<a class="headerlink" href="#showprogresshud" title="Permalink to this headline">¶</a></h2>
+<p>Locks interface interaction by displaying a spinner on the screen. The same spinner is always displayed when lading the contents of a page inside a <code class="docutils literal"><span class="pre">section</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">axemas</span><span class="o">.</span><span class="n">showProgressHUD</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hideprogresshud">
+<h2>hideProgressHUD<a class="headerlink" href="#hideprogresshud" title="Permalink to this headline">¶</a></h2>
+<p>Used to dismiss a previously displayed progressHUD:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">axemas</span><span class="o">.</span><span class="n">hideProgressHUD</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getplatform">
+<h2>getPlatform<a class="headerlink" href="#getplatform" title="Permalink to this headline">¶</a></h2>
+<p>Uses the <code class="docutils literal"><span class="pre">navigator.userAgent</span></code> object to determine if the current platform. Returns <code class="docutils literal"><span class="pre">Android</span></code>, <code class="docutils literal"><span class="pre">iOS</span></code> or <code class="docutils literal"><span class="pre">unsupported</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>if (axemas.getPlatform() == &#39;your_platform&#39;) {
+    //do something
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="storedata">
+<h2>storeData<a class="headerlink" href="#storedata" title="Permalink to this headline">¶</a></h2>
+<p>Uses the WebView&#8217;s <code class="docutils literal"><span class="pre">localSotrage</span></code> for key/value storing. Data stored will be available next time the application is launched:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">axemas</span><span class="o">.</span><span class="n">storeData</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="s">&quot;only_string_values&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fetchdata">
+<h2>fetchData<a class="headerlink" href="#fetchdata" title="Permalink to this headline">¶</a></h2>
+<p>Returns a previously stored <code class="docutils literal"><span class="pre">value</span></code> providing a <code class="docutils literal"><span class="pre">key</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>var value = axemas.fetchData(&quot;key&quot;);
+</pre></div>
+</div>
+</div>
+<div class="section" id="removedata">
+<h2>removeData<a class="headerlink" href="#removedata" title="Permalink to this headline">¶</a></h2>
+<p>Permanently removes the previously saved data from the locationStorage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">axemas</span><span class="o">.</span><span class="n">removeData</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gearbox_extension.html" class="btn btn-neutral float-right" title="Gearbox Extension" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="android_api.html" class="btn btn-neutral" title="Android API" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, AXANT.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
