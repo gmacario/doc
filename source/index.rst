@@ -31,6 +31,7 @@ Contents:
     js_api
     gearbox_extension
     maintain_axemas
+    utilities
 
 Indices and tables
 ==================
