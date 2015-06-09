@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to AXEMAS documentation! &mdash; AXEMAS 1.0 documentation</title>
+  <title>Utilities &mdash; AXEMAS 1.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
 
   
-    <link rel="top" title="AXEMAS 1.0 documentation" href="#"/>
-        <link rel="next" title="iOS API" href="ios_api.html"/> 
+    <link rel="top" title="AXEMAS 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Maintain AXEMAS" href="maintain_axemas.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -48,7 +48,7 @@
         
 
         
-          <a href="#" class="icon icon-home"> AXEMAS
+          <a href="index.html" class="icon icon-home"> AXEMAS
         
 
         
@@ -70,7 +70,7 @@
         
           
           
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ios_api.html">iOS API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ios_api.html#declaring-sections">Declaring Sections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ios_api.html#section-controllers">Section Controllers</a></li>
@@ -93,13 +93,6 @@
 <li class="toctree-l2"><a class="reference internal" href="js_api.html#storedata">storeData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="js_api.html#fetchdata">fetchData</a></li>
 <li class="toctree-l2"><a class="reference internal" href="js_api.html#removedata">removeData</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="utilities.html#crash-logging">Crash Logging</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="utilities.html#android">Android</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gearbox_extension.html">Gearbox Extension</a><ul>
@@ -126,6 +119,13 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#crash-logging">Crash Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#android">Android</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
           
@@ -139,7 +139,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">AXEMAS</a>
+        <a href="index.html">AXEMAS</a>
       </nav>
 
 
@@ -148,13 +148,13 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Welcome to AXEMAS documentation!</li>
+    <li>Utilities</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/utilities.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -163,70 +163,37 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="welcome-to-axemas-documentation">
-<h1>Welcome to AXEMAS documentation!<a class="headerlink" href="#welcome-to-axemas-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Development Framework for MultiPlatform hybrid mobile applications.</p>
-<div class="section" id="core-concepts">
-<h2>Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink to this headline">¶</a></h2>
-<p>AXEMAS handles the whole navigation of the application and transition between views,
-while it permits to implement the views content in HTML itself.</p>
-<p>AXEMAS works using <code class="docutils literal"><span class="pre">sections</span></code>, each <code class="docutils literal"><span class="pre">Section</span></code> represents the content of the view
-and is loaded from an HTML file or from an external URL.</p>
-<p>Whenever native code requires to be attached to a section, it is possible to attach
-a <code class="docutils literal"><span class="pre">SectionController</span></code> to a <code class="docutils literal"><span class="pre">Section</span></code> itself.</p>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ios_api.html">iOS API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ios_api.html#declaring-sections">Declaring Sections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ios_api.html#section-controllers">Section Controllers</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="android_api.html">Android API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="android_api.html#declaring-sections">Declaring Sections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="android_api.html#section-controllers">Section Controllers</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="js_api.html">JavaScript API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="js_api.html#goto">goto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js_api.html#gotofromsidebar">gotoFromSidebar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js_api.html#call">call</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js_api.html#alert">alert</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js_api.html#dialog">dialog</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js_api.html#showprogresshud">showProgressHUD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js_api.html#hideprogresshud">hideProgressHUD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js_api.html#getplatform">getPlatform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js_api.html#storedata">storeData</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js_api.html#fetchdata">fetchData</a></li>
-<li class="toctree-l2"><a class="reference internal" href="js_api.html#removedata">removeData</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="utilities.html#crash-logging">Crash Logging</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="gearbox_extension.html">Gearbox Extension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gearbox_extension.html#installaton">Installaton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gearbox_extension.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gearbox_extension.html#project-structure">Project structure</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="maintain_axemas.html">Maintain AXEMAS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="maintain_axemas.html#axemas-framework">AXEMAS framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="maintain_axemas.html#android-axemas-library">Android AXEMAS library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="maintain_axemas.html#ios-axemas-library">iOS AXEMAS library</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="utilities">
+<h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="crash-logging">
+<h2>Crash Logging<a class="headerlink" href="#crash-logging" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="android">
+<h3>Android<a class="headerlink" href="#android" title="Permalink to this headline">¶</a></h3>
+<p>Splunk MINT is used to log crash reports. To enable it, it&#8217;s necessary to be registered on their service
+(<a class="reference external" href="https://mint.splunk.com/">https://mint.splunk.com/</a>) Next to the app creation on their portal initiate this code inside the Activity wich extends
+AXMActivity with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">this</span><span class="o">.</span><span class="n">startCrashReporter</span><span class="p">();</span>
+</pre></div>
 </div>
+<p>The next step is to add this config string inside strings.xml file inside res/values folder inside your Android
+project. This String resource contains the api-key got by Splunk MINT Portal for your application.</p>
+<blockquote>
+<div>&lt;string name=&#8217;splunk_api_key&#8217;&gt;&lt;/string&gt;</div></blockquote>
+<p>In the end you have to configure gradle to work with the new Mint dependency required.
+Add this code to your build.gradle project file:</p>
+<div class="highlight-python"><div class="highlight"><pre>repositories {
+    maven {
+        url &quot;https://mint.splunk.com/gradle/&quot;
+    }
+}
+
+dependencies {
+    compile &#39;com.splunk.mint:mint:4.2&#39;
+}
+</pre></div>
 </div>
-<div class="section" id="indices-and-tables">
-<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
-</ul>
+<p>Once these 3 steps are done you have a fully implemented crash reporter on your Axemas Application.</p>
+</div>
 </div>
 </div>
 
@@ -236,8 +203,8 @@ a <code class="docutils literal"><span class="pre">SectionController</span></cod
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ios_api.html" class="btn btn-neutral float-right" title="iOS API" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="maintain_axemas.html" class="btn btn-neutral" title="Maintain AXEMAS" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -31,6 +31,7 @@
 
   
     <link rel="top" title="AXEMAS 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Utilities" href="utilities.html"/>
         <link rel="prev" title="Gearbox Extension" href="gearbox_extension.html"/> 
 
   
@@ -119,6 +120,13 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#crash-logging">Crash Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utilities.html#android">Android</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
           
@@ -181,20 +189,25 @@ with the following commands.</p>
 </div>
 <div class="section" id="debug-projects-update">
 <h3>Debug Projects Update<a class="headerlink" href="#debug-projects-update" title="Permalink to this headline">¶</a></h3>
-<p>To update the <code class="docutils literal"><span class="pre">Android</span></code> and the <code class="docutils literal"><span class="pre">iOS</span></code> project use the following command:</p>
+<p>To update the <code class="docutils literal"><span class="pre">Android</span></code> and the <code class="docutils literal"><span class="pre">iOS</span></code> demo projects use the following command
+(examples folder must be in the same parent folder or will be cloned inside ../examples):</p>
 <div class="highlight-python"><div class="highlight"><pre>./update_debug
 </pre></div>
 </div>
 <p>Il will delete all the old files in the iOS and Android projects and copy the new library files;
-native binraies and HTML.</p>
+native binraies and HTML.
+If you want to release demo apps remember to make necessary fixes, tag version and push everything</p>
 </div>
 <div class="section" id="release-repository-update">
 <h3>Release Repository Update<a class="headerlink" href="#release-repository-update" title="Permalink to this headline">¶</a></h3>
 <p>Same as for the Debug Project Update, this will update the repository that the <code class="docutils literal"><span class="pre">gearbox</span> <span class="pre">axemas-setup</span></code>
-command needs to clone in order to quickstart a new project:</p>
+command needs to clone in order to quickstart a new project
+(releases folder must be in the same parent folder or will be cloned inside ../releases,
+be careful if you have pending changes):</p>
 <div class="highlight-python"><div class="highlight"><pre>./update_release
 </pre></div>
 </div>
+<p>If you want to release new version remember to commit, tag version and push everything</p>
 </div>
 </div>
 <div class="section" id="android-axemas-library">
@@ -238,6 +251,8 @@ a new release.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utilities.html" class="btn btn-neutral float-right" title="Utilities" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="gearbox_extension.html" class="btn btn-neutral" title="Gearbox Extension" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

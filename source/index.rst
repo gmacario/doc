@@ -29,9 +29,10 @@ Contents:
     ios_api
     android_api
     js_api
+    utilities
     gearbox_extension
     maintain_axemas
-    utilities
+    
 
 Indices and tables
 ==================

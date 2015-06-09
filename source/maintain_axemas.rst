@@ -29,22 +29,28 @@ with the following commands.
 Debug Projects Update
 ---------------------
 
-To update the ``Android`` and the ``iOS`` project use the following command::
+To update the ``Android`` and the ``iOS`` demo projects use the following command 
+(examples folder must be in the same parent folder or will be cloned inside ../examples)::
 
     ./update_debug
 
 Il will delete all the old files in the iOS and Android projects and copy the new library files;
 native binraies and HTML.
+If you want to release demo apps remember to make necessary fixes, tag version and push everything
 
 
 Release Repository Update
 -------------------------
 
 Same as for the Debug Project Update, this will update the repository that the ``gearbox axemas-setup``
-command needs to clone in order to quickstart a new project::
+command needs to clone in order to quickstart a new project
+(releases folder must be in the same parent folder or will be cloned inside ../releases, 
+be careful if you have pending changes)::
 
     ./update_release
-    
+
+If you want to release new version remember to commit, tag version and push everything 
+
     
 Android AXEMAS library
 ======================
@@ -61,7 +67,6 @@ After modifiying the library please inside this project's root folder::
 
 You will find the ``app-release.aar`` inside the ``app/build/outputs/aar/`` folder. Copy this file
 inside the ``axemas-android`` project in the ``libs`` folder.
-
 
 
 iOS AXEMAS library
