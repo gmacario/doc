@@ -30,6 +30,7 @@ Contents:
     android_api
     js_api
     utilities
+    cookbook
     gearbox_extension
     maintain_axemas
     
