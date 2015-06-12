@@ -4,7 +4,7 @@ Documentation
 
 ``AXEMAS`` documentation repository
 
-online docs: https://rawgit.com/AXEMAS/doc/master/build/html/index.html
+online docs: http://axemas.readthedocs.org/
 compile doc::
 
     pip install sphinx
