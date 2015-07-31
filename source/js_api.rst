@@ -15,6 +15,8 @@ The JavaScript module ``axemas.js`` permits interaction with the native code of 
     - fetchData
     - removeData
 
+.. _js_goto:
+
 goto
 ----
 
