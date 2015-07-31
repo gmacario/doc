@@ -59,7 +59,7 @@ Or in your ``AXMActivity`` subclass ``onCreate()`` method for **Android**:
             if (savedInstanceState == null) {
                 JSONObject data = new JSONObject();
                 try {
-                    data.put("url", "www/index.html");
+                    data.put("url", "www/home.html");
                     data.put("title", "Home");
                 } catch (JSONException e) {
                     e.printStackTrace();
