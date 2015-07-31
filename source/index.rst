@@ -21,6 +21,8 @@ and is loaded from an HTML file or from an external URL.
 Whenever native code requires to be attached to a section, it is possible to attach
 a ``SectionController`` to a ``Section`` itself.
 
+To create a new AXEMAS project try :ref:`quickstart`
+
 Example
 -------
 
@@ -67,8 +69,6 @@ Or in your ``AXMActivity`` subclass ``onCreate()`` method for **Android**:
             }
         }
     }
-
-To create a new AXEMAS project try :ref:`quickstart`
 
 Contents:
 
