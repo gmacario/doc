@@ -1,15 +1,17 @@
-=================
-Gearbox Extension
-=================
+.. _quickstart:
 
-This is a ``gearbox`` extension that will generate a new ``Axemas`` project. ``Axemas`` is a development Framework
-for MultiPlatform hybrid mobile applications.
+===============================
+Quickstarting a New Application
+===============================
+
+AXEMAS provides a ``Gearbox`` extension that will generate a new ``Axemas`` project.
+Gearbox is a skeleton generation tool for Python
 
 Installaton
 -----------
 
-Create a new virtual environment and install ``axemas`` with ``pip``. This will include all needed dependencies like
-``gearbox``::
+Create a new virtual environment and install ``axemas`` with ``pip``.
+This will include all needed dependencies like ``gearbox``::
 
     $ virtualenv --no-site-packages axemas_builder
     $ . axemas_builder/bin/activate
@@ -22,8 +24,6 @@ Run the following command to generate a project called ``new_project`` inside th
 create the new project::
 
      (axemas_builder)$ gearbox axemas-setup -n ProjectName -p com.company.example
-
-
 
 Project structure
 -----------------

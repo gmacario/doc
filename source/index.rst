@@ -21,6 +21,55 @@ and is loaded from an HTML file or from an external URL.
 Whenever native code requires to be attached to a section, it is possible to attach
 a ``SectionController`` to a ``Section`` itself.
 
+Example
+-------
+
+The most simple AXEMAS application will start by creating a root ``Section``.
+The following is as much as you need to load a section from the ``www/home.html`` file.
+
+Inside your ``AppDelegate`` for **iOS**:
+
+.. code-block:: objc
+
+    @implementation AppDelegate
+
+    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        self.window.rootViewController = [NavigationSectionsManager makeApplicationRootController:@[@{
+            @"title": @"Home",
+            @"url": @"www/home.html",
+        }]];
+
+        [self.window makeKeyAndVisible];
+        return YES;
+    }
+
+    @end
+
+Or in your ``AXMActivity`` subclass ``onCreate()`` method for **Android**:
+
+.. code-block:: java
+
+    public class MainActivity extends AXMActivity {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            if (savedInstanceState == null) {
+                JSONObject data = new JSONObject();
+                try {
+                    data.put("url", "www/index.html");
+                    data.put("title", "Home");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                NavigationSectionsManager.makeApplicationRootController(this, data);
+            }
+        }
+    }
+
+To create a new AXEMAS project try :ref:`quickstart`
+
 Contents:
 
 .. toctree::
