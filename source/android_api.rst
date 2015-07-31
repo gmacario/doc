@@ -44,143 +44,142 @@ value in section data will provide a button to open and close the sidebar
 with the given icon. If the value is omitted, even when the sidebar is
 enabled, there will be no button to show it.
 
+NavigationSectionsManager
+=========================
+
 The ``NavigationSectionsManager`` manages the whole AXEMAS navigation
 system, creates the sections and keeps track of the current *Fragment Stack*,
 *Action Bar* and *Sidebar* which are exposed through
 ``NavigationSectionsManager`` methods.
 
+.. java:import:: android.content Context
+.. java:import:: android.app Fragment
+.. java:import:: android.app AlertDialog
 
-NavigationSectionsManager
-=========================
+.. java:method:: public static void registerController(Context context, Class controllerClass, String route)
 
-    .. java:import:: android.content Context
-    .. java:import:: android.app Fragment
-    .. java:import:: android.app AlertDialog
+    Registers a given :ref:`android_section_controller` for the specified route (html file).
 
-    .. java:method:: public static void registerController(Context context, Class controllerClass, String route)
+.. java:method:: public static void registerDefaultController(Context context, Class controllerClass)
 
-        Registers a given :ref:`android_section_controller` for the specified route (html file).
+    Registers a given :ref:`android_section_controller` as the default controller which is used for all
+    the setions that do not provide a specific section controller.
 
-    .. java:method:: public static void registerDefaultController(Context context, Class controllerClass)
+.. java:method:: public static void makeApplicationRootController(Context context, JSONObject data)
 
-        Registers a given :ref:`android_section_controller` as the default controller which is used for all
-        the setions that do not provide a specific section controller.
+    Creates a new application root :ref:`android_section_controller` (must be called from ``MainActivity.onCreate``).
+    ``data`` is the details of the section controller as you would pass them to :java:ref:`goTo`.
 
-    .. java:method:: public static void makeApplicationRootController(Context context, JSONObject data)
+.. java:method:: public static void makeApplicationRootController(Context context, JSONObject data, String sidebarUrl)
 
-        Creates a new application root :ref:`android_section_controller` (must be called from ``MainActivity.onCreate``).
-        ``data`` is the details of the section controller as you would pass them to :java:ref:`goTo`.
+    Creates a new application root :ref:`android_section_controller` (must be called from ``MainActivity.onCreate``).
+    ``data`` is the details of the section controller as you would pass them to :java:ref:`goTo`.
+    This method also adds a sidebar, ``sidebarUrl`` is the path of the section html file that should
+    be loaded inside the sidebar.
 
-    .. java:method:: public static void makeApplicationRootController(Context context, JSONObject data, String sidebarUrl)
+.. java:method:: public static void makeApplicationRootController(Context context, JSONObject data, JSONObject... tabs)
 
-        Creates a new application root :ref:`android_section_controller` (must be called from ``MainActivity.onCreate``).
-        ``data`` is the details of the section controller as you would pass them to :java:ref:`goTo`.
-        This method also adds a sidebar, ``sidebarUrl`` is the path of the section html file that should
-        be loaded inside the sidebar.
+    Creates a new application root :ref:`android_section_controller` (must be called from ``MainActivity.onCreate``).
+    ``data`` is the details of the section controller as you would pass them to :java:ref:`goTo`.
+    This method also provides additional **tabs** to the application, the root section controller is placed in
+    the first tab, while the other ``tabs`` are also additional section controllers data used to fill
+    additional tabs in the tabbar.
 
-    .. java:method:: public static void makeApplicationRootController(Context context, JSONObject data, JSONObject... tabs)
+.. java:method:: public static void makeApplicationRootController(Context context, JSONObject data, String sidebarUrl, JSONObject... tabs)
 
-        Creates a new application root :ref:`android_section_controller` (must be called from ``MainActivity.onCreate``).
-        ``data`` is the details of the section controller as you would pass them to :java:ref:`goTo`.
-        This method also provides additional **tabs** to the application, the root section controller is placed in
-        the first tab, while the other ``tabs`` are also additional section controllers data used to fill
-        additional tabs in the tabbar.
+    Creates a new application root :ref:`android_section_controller` (must be called from ``MainActivity.onCreate``).
+    ``data`` is the details of the section controller as you would pass them to :java:ref:`goTo`.
+    This method also adds a sidebar, ``sidebarUrl`` is the path of the section html file that should
+    be loaded inside the sidebar.
+    This method also provides additional **tabs** to the application, the root section controller is placed in
+    the first tab, while the other ``tabs`` are also additional section controllers data used to fill
+    additional tabs in the tabbar.
 
-    .. java:method:: public static void makeApplicationRootController(Context context, JSONObject data, String sidebarUrl, JSONObject... tabs)
+.. java:method:: public static void goTo(Context context, JSONObject data)
 
-        Creates a new application root :ref:`android_section_controller` (must be called from ``MainActivity.onCreate``).
-        ``data`` is the details of the section controller as you would pass them to :java:ref:`goTo`.
-        This method also adds a sidebar, ``sidebarUrl`` is the path of the section html file that should
-        be loaded inside the sidebar.
-        This method also provides additional **tabs** to the application, the root section controller is placed in
-        the first tab, while the other ``tabs`` are also additional section controllers data used to fill
-        additional tabs in the tabbar.
+    Pushes on the view navigation stack the given  :ref:`android_section_controller`. This works like
+    :ref:`js_goto` and accepts ``data`` as ``JSONObject`` with the same data as the related Javascript
+    Object.
 
-    .. java:method:: public static void goTo(Context context, JSONObject data)
+.. java:method:: public static AXMNavigationController getActiveNavigationController(AXMActivity activity)
 
-        Pushes on the view navigation stack the given  :ref:`android_section_controller`. This works like
-        :ref:`js_goto` and accepts ``data`` as ``JSONObject`` with the same data as the related Javascript
-        Object.
+    Returns the :java:ref:`AXMNavigationController` of the application. This is the object that
+    manages the navigation stack (pushing and popping section controllers) and provides the following
+    methods to manage the navigation stack:
 
-    .. java:method:: public static AXMNavigationController getActiveNavigationController(AXMActivity activity)
+        - ``void popFragments(final int fragmentsToPop)`` -> Pops up to ``fragmentsToPop`` fragments (sections)
+          from the navigation stack.
+        - ``void popFragmentsAndMaintain(final int maintainedFragmentsArg)`` -> Pops until only
+          ``maintainedFragmentsArg`` fragments (sections) are left on the stack.
+        - ``void pushFragment(final Fragment fragment, final String tag)`` -> Pushes a new :java:ref:`Fragment`
+          on the navigation stack.
 
-        Returns the : java:ref:`AXMNavigationController` of the application. This is the object that
-        manages the navigation stack (pushing and popping section controllers) and provides the following
-        methods to manage the navigation stack:
+.. java:method:: public static SectionFragment getActiveFragment(Context context)
 
-            - ``void popFragments(final int fragmentsToPop)`` -> Pops up to ``fragmentsToPop`` fragments (sections)
-              from the navigation stack.
-            - ``void popFragmentsAndMaintain(final int maintainedFragmentsArg)`` -> Pops until only
-              ``maintainedFragmentsArg`` fragments (sections) are left on the stack.
-            - ``void pushFragment(final Fragment fragment, final String tag)`` -> Pushes a new :java:ref:`Fragment`
-              on the navigation stack.
+    Returns the current :ref:`android_section_controller` on top of the navigation stack.
+    This is usually the view that the user is currently looking at.
 
-    .. java:method:: public static SectionFragment getActiveFragment(Context context)
+.. java:method:: public static AXMTabBarController getTabBarController(AXMActivity activity)
 
-        Returns the current :ref:`android_section_controller` on top of the navigation stack.
-        This is usually the view that the user is currently looking at.
+    Returns the :java:ref:`AXMTabBarController` of the application.
+    This is the object that manages the application tabs if available.
+    It also provides the following methods to manage the tabs:
 
-    .. java:method:: public static AXMTabBarController getTabBarController(AXMActivity activity)
+        - ``int getSelectedTab()`` -> gets the index of the currently selected tab.
+        - ``void setSelectedTab(int idx)`` -> sets the currently selected tab.
 
-        Returns the :java:ref:`AXMTabBarController` of the application.
-        This is the object that manages the application tabs if available.
-        It also provides the following methods to manage the tabs:
+.. java:method:: public static AXMSidebarController getSidebarController(AXMActivity activity)
 
-            - ``int getSelectedTab()`` -> gets the index of the currently selected tab.
-            - ``void setSelectedTab(int idx)`` -> sets the currently selected tab.
+    Returns the :java:ref:`AXMSidebarController` of the application.
+    This is the object that manages the sidebar of the application if available.
+    It also provides the following methods to manage the sidebar:
 
-    .. java:method:: public static AXMSidebarController getSidebarController(AXMActivity activity)
+        - ``AXMSectionController getSidebarSectionController()`` -> Retrieves the :ref:`android_section_controller`
+          bound to the section loaded into the sidebar.
+        - ``void setSidebarButtonVisibility(boolean visible)`` -> Hides/Shows the sidebar button in the actionbar
+        - ``void setSideBarButtonIcon(String resourceName)`` -> Sets the sidebar button icon from a project resource
+        - ``void setSidebarAnimationConfiguration(float alpha, int duration, String hexColor)`` -> change the
+          sidebar animation configuration.
+        - ``View enableFullSizeSidebar()`` -> Switches to full size sidebar mode. This moves the
+          actionbar inside the sidebar instead of being on top of both the sidebar and the content.
+          It returns the actionbar View.
+        - ``boolean isOpening()`` -> Whenever the sidebar is open or not.
+        - ``void toggleSidebar(boolean visible)`` -> Sets sidebar visibility.
+        - ``void toggleSidebar()`` -> Toggles sidebar visibility.
 
-        Returns the :java:ref:`AXMSidebarController` of the application.
-        This is the object that manages the sidebar of the application if available.
-        It also provides the following methods to manage the sidebar:
+.. java:method:: public static void showProgressDialog(Context context)
 
-            - ``AXMSectionController getSidebarSectionController()`` -> Retrieves the :ref:`android_section_controller`
-              bound to the section loaded into the sidebar.
-            - ``void setSidebarButtonVisibility(boolean visible)`` -> Hides/Shows the sidebar button in the actionbar
-            - ``void setSideBarButtonIcon(String resourceName)`` -> Sets the sidebar button icon from a project resource
-            - ``void setSidebarAnimationConfiguration(float alpha, int duration, String hexColor)`` -> change the
-              sidebar animation configuration.
-            - ``View enableFullSizeSidebar()`` -> Switches to full size sidebar mode. This moves the
-              actionbar inside the sidebar instead of being on top of both the sidebar and the content.
-              It returns the actionbar View.
-            - ``boolean isOpening()`` -> Whenever the sidebar is open or not.
-            - ``void toggleSidebar(boolean visible)`` -> Sets sidebar visibility.
-            - ``void toggleSidebar()`` -> Toggles sidebar visibility.
+    Displays a spinner on top of the application. This is automatically called
+    whenever a new section is loaded.
 
-    .. java:method:: public static void showProgressDialog(Context context)
+.. java:method:: public static void hideProgressDialog(Context context)
 
-        Displays a spinner on top of the application. This is automatically called
-        whenever a new section is loaded.
+    Hides the currently displayed spinner.
 
-    .. java:method:: public static void hideProgressDialog(Context context)
+.. java:method:: public static void showDismissibleAlertDialog(Context context, String title, String message)
 
-        Hides the currently displayed spinner.
+    Displays an alert message with the specified ``title`` and ``message``.
+    By default only a dismiss button is provided.
 
-    .. java:method:: public static void showDismissibleAlertDialog(Context context, String title, String message)
+.. java:method:: public static void showDismissibleAlertDialog(Context context, AlertDialog.Builder builder)
 
-        Displays an alert message with the specified ``title`` and ``message``.
-        By default only a dismiss button is provided.
+    New alert message built with the user provided :java:ref:`AlertDialog.Builder` dialog builder.
 
-    .. java:method:: public static void showDismissibleAlertDialog(Context context, AlertDialog.Builder builder)
+.. java:method:: public static void enableBackButton(Context context, boolean toggle)
 
-        New alert message built with the user provided :java:ref:`AlertDialog.Builder` dialog builder.
+    Enables/disables the back button in the application.
 
-    .. java:method:: public static void enableBackButton(Context context, boolean toggle)
+.. java:method:: public static void store(Context context, String key, String value)
 
-        Enables/disables the back button in the application.
+    Stores a new value in the application persistent storage.
 
-    .. java:method:: public static void store(Context context, String key, String value)
+.. java:method:: public static String getValueForKey(Context context, String key)
 
-        Stores a new value in the application persistent storage.
+    Retrieves a previously stored value from the application persistent storage.
 
-    .. java:method:: public static String getValueForKey(Context context, String key)
+.. java:method:: public static void removeValue(Context context, String key)
 
-        Retrieves a previously stored value from the application persistent storage.
-
-    .. java:method:: public static void removeValue(Context context, String key)
-
-        Deletes a value from the application persistent storage.
+    Deletes a value from the application persistent storage.
 
 
 .. _android_section_controller:
@@ -195,9 +194,11 @@ providing ``sectionWillLoad`` and ``sectionDidLoad`` methods.
 Inside those methods it is possible to register additional native
 functions on the javascript bridge.
 
-Inside ``sectionWillLoad`` method of ``SectionController`` subclass
+Inside ``sectionWillLoad`` method of ``SectionController`` subclass
 it is possible to register handlers which will be available
-in Javascript using ``axemas.call``::
+in Javascript using ``axemas.call``:
+
+.. code-block:: java
 
     this.section.getJSBridge().registerHandler("openMap", new JavascriptBridge.Handler() {
         @Override
@@ -211,20 +212,26 @@ in Javascript using ``axemas.call``::
     });
 
 Registering the ``SectionController`` for a section can be done
-using the ``NavigationSectionsManager``::
+using the ``NavigationSectionsManager``:
+
+.. code-block:: java
 
     NavigationSectionsManager
                 .registerController(this,HomeSectionController.class, "www/index.html");
 
 Calling JS from native code is also possible using the section bridge,
-after you registered your handlers in JavaScript with ``axemas.register``::
+after you registered your handlers in JavaScript with ``axemas.register``:
+
+.. code-block:: javascript
 
     axemas.register("handler_name", function(data, callback) {
         callback({data: data});
     });
 
 Calling ``handler_name`` from native code from a ``SectionController``
-is possibile using the javascript bridge ``callHandler``::
+is possibile using the javascript bridge ``callHandler``:
+
+.. code-block:: java
 
     this.section.getJSBridge().callJS("send-passenger-count", data, new JavascriptBridge.AndroidCallback() {
         @Override
@@ -239,11 +246,10 @@ is possibile using the javascript bridge ``callHandler``::
 - *sectionWillLoad* just before the webpage will start to load
 - *sectionOnViewCreate(ViewGroup view)* when the fragment is first created
 - *boolean isInsideWebView(MotionEvent ev)* whenever a touch event for the webview happens, can be used to return block events to be trapped by webview.
-
 - *sectionFragmentWillPause* triggered by fragment's onPause
 - *sectionFragmentWillResume* triggered by fragment's onResume
 - *sectionFragmentOnActivityResult* triggered by fragment's onActivityResult
 - *sectionFragmentOnSaveInstanceState* triggered by fragment onSaveInstanceState
 - *sectionFragmentOnCreateView* triggered by fragment View Creation during inflation
-
+- *actionbarRightButtonAction* triggered whenever the right button is pressed in the actionbar
 
