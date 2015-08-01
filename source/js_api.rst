@@ -1,3 +1,5 @@
+.. _js_api:
+
 JavaScript API
 ==============
 

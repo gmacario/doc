@@ -1,3 +1,5 @@
+.. _android_api:
+
 ===========
 Android API
 ===========
