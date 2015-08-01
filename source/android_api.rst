@@ -10,7 +10,9 @@ Declaring Sections
 The application MainActivity must extend ``AXMActivity`` which creates the application main structure.
 In the ``onCreate`` of your MainActivity initialize the root section by
 calling  ``NavigationSectionsManager.makeApplicationRootController()``
-The ``makeApplicationRootController()`` accepts a JSONObject containing the section data::
+The ``makeApplicationRootController()`` accepts a JSONObject containing the section data:
+
+.. code-block:: java
 
     JSONObject data = new JSONObject();
     try {
@@ -27,7 +29,9 @@ titled ``Home``. Further sections can be pushed onto the navigation stack
 using ``axemas.goto(dictionary)`` from Javascript.
 
 An application with sidebar can also be created by passing a section data as
-sidebar to the ``makeApplicationRootController``::
+sidebar to the ``makeApplicationRootController``:
+
+.. code-block:: java
 
     JSONObject data = new JSONObject();
     try {
