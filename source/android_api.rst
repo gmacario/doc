@@ -46,6 +46,77 @@ value in section data will provide a button to open and close the sidebar
 with the given icon. If the value is omitted, even when the sidebar is
 enabled, there will be no button to show it.
 
+.. _android_section_controller:
+
+Section Controllers
+===================
+
+Section controllers permit to attach native code to each section,
+doing so is as simple as subclassing section controllers and
+providing ``sectionWillLoad`` and ``sectionDidLoad`` methods.
+
+Inside those methods it is possible to register additional native
+functions on the javascript bridge.
+
+Inside ``sectionWillLoad`` method of ``SectionController`` subclass
+it is possible to register handlers which will be available
+in Javascript using ``axemas.call``:
+
+.. code-block:: java
+
+    this.section.getJSBridge().registerHandler("openMap", new JavascriptBridge.Handler() {
+        @Override
+        public void call(Object data, JavascriptBridge.Callback callback) {
+
+            String uri = "https://maps.google.com/maps";
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            section.startActivity(i);
+
+        }
+    });
+
+Registering the ``SectionController`` for a section can be done
+using the ``NavigationSectionsManager``:
+
+.. code-block:: java
+
+    NavigationSectionsManager
+                .registerController(this,HomeSectionController.class, "www/index.html");
+
+Calling JS from native code is also possible using the section bridge,
+after you registered your handlers in JavaScript with ``axemas.register``:
+
+.. code-block:: javascript
+
+    axemas.register("handler_name", function(data, callback) {
+        callback({data: data});
+    });
+
+Calling ``handler_name`` from native code from a ``SectionController``
+is possibile using the javascript bridge ``callHandler``:
+
+.. code-block:: java
+
+    this.section.getJSBridge().callJS("send-passenger-count", data, new JavascriptBridge.AndroidCallback() {
+        @Override
+        public void call(JSONObject data) {
+            Log.d("axemas", "Callback with responseData: "+ data.toString());
+        }
+    });
+
+``SectionController`` available callbacks:
+
+- *sectionDidLoad* triggered when the webpage finished loading
+- *sectionWillLoad* just before the webpage will start to load
+- *sectionOnViewCreate(ViewGroup view)* when the fragment is first created
+- *boolean isInsideWebView(MotionEvent ev)* whenever a touch event for the webview happens, can be used to return block events to be trapped by webview.
+- *sectionFragmentWillPause* triggered by fragment's onPause
+- *sectionFragmentWillResume* triggered by fragment's onResume
+- *sectionFragmentOnActivityResult* triggered by fragment's onActivityResult
+- *sectionFragmentOnSaveInstanceState* triggered by fragment onSaveInstanceState
+- *sectionFragmentOnCreateView* triggered by fragment View Creation during inflation
+- *actionbarRightButtonAction* triggered whenever the right button is pressed in the actionbar
+
 NavigationSectionsManager
 =========================
 
@@ -182,76 +253,3 @@ system, creates the sections and keeps track of the current *Fragment Stack*,
 .. java:method:: public static void removeValue(Context context, String key)
 
     Deletes a value from the application persistent storage.
-
-
-.. _android_section_controller:
-
-Section Controllers
-===================
-
-Section controllers permit to attach native code to each section,
-doing so is as simple as subclassing section controllers and
-providing ``sectionWillLoad`` and ``sectionDidLoad`` methods.
-
-Inside those methods it is possible to register additional native
-functions on the javascript bridge.
-
-Inside ``sectionWillLoad`` method of ``SectionController`` subclass
-it is possible to register handlers which will be available
-in Javascript using ``axemas.call``:
-
-.. code-block:: java
-
-    this.section.getJSBridge().registerHandler("openMap", new JavascriptBridge.Handler() {
-        @Override
-        public void call(Object data, JavascriptBridge.Callback callback) {
-
-            String uri = "https://maps.google.com/maps";
-            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-            section.startActivity(i);
-
-        }
-    });
-
-Registering the ``SectionController`` for a section can be done
-using the ``NavigationSectionsManager``:
-
-.. code-block:: java
-
-    NavigationSectionsManager
-                .registerController(this,HomeSectionController.class, "www/index.html");
-
-Calling JS from native code is also possible using the section bridge,
-after you registered your handlers in JavaScript with ``axemas.register``:
-
-.. code-block:: javascript
-
-    axemas.register("handler_name", function(data, callback) {
-        callback({data: data});
-    });
-
-Calling ``handler_name`` from native code from a ``SectionController``
-is possibile using the javascript bridge ``callHandler``:
-
-.. code-block:: java
-
-    this.section.getJSBridge().callJS("send-passenger-count", data, new JavascriptBridge.AndroidCallback() {
-        @Override
-        public void call(JSONObject data) {
-            Log.d("axemas", "Callback with responseData: "+ data.toString());
-        }
-    });
-
-``SectionController`` available callbacks:
-
-- *sectionDidLoad* triggered when the webpage finished loading
-- *sectionWillLoad* just before the webpage will start to load
-- *sectionOnViewCreate(ViewGroup view)* when the fragment is first created
-- *boolean isInsideWebView(MotionEvent ev)* whenever a touch event for the webview happens, can be used to return block events to be trapped by webview.
-- *sectionFragmentWillPause* triggered by fragment's onPause
-- *sectionFragmentWillResume* triggered by fragment's onResume
-- *sectionFragmentOnActivityResult* triggered by fragment's onActivityResult
-- *sectionFragmentOnSaveInstanceState* triggered by fragment onSaveInstanceState
-- *sectionFragmentOnCreateView* triggered by fragment View Creation during inflation
-- *actionbarRightButtonAction* triggered whenever the right button is pressed in the actionbar
-

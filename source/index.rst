@@ -33,7 +33,7 @@ it will automatically create a new AXEMAS project::
 
     $ gearbox axemas-setup -n ProjectName -p com.company.example
 
-See :ref:`quickstart`:: for additional details on the ``gearbox`` command.
+See :ref:`quickstart` for additional details on the ``gearbox`` command.
 
 Basic Project Introduction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

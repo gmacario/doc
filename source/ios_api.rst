@@ -52,6 +52,75 @@ value in section data will provide a button to open and close the sidebar
 with the given icon. If the value is omitted, even when the sidebar is
 enabled, there will be no button to show it.
 
+.. _ios_section_controller:
+
+Section Controllers
+===================
+
+Section controllers permit to attach native code to each section,
+doing so is as simple as subclassing section controllers and
+providing ``sectionWillLoad`` and ``sectionDidLoad`` methods.
+
+Inside those methods it is possible to register additional native
+functions on the javascript bridge.
+
+Inside ``viewWillLoad`` method of ``SectionController`` subclass
+it is possible to register handlers which will be available
+in Javascript using ``axemas.call``:
+
+.. code-block:: objc
+
+    @implementation HomeSectionController
+
+    - (void)sectionWillLoad {
+        [self.section.bridge registerHandler:@"openMap" handler:^(id data, WVJBResponseCallback responseCallback) {
+            UINavigationController *navController = [NavigationSectionsManager activeNavigationController];
+            [navController pushViewController:[[MapViewController alloc] init] animated:YES];
+
+            if (responseCallback) {
+                responseCallback(nil);
+            }
+        }];
+    }
+
+    @end
+
+Registering the ``SectionController`` for a section can be done
+using the ``NavigationSectionsManager``:
+
+.. code-block:: objc
+
+    [NavigationSectionsManager registerController:[HomeSectionController class] forRoute:@"www/index.html"];
+
+Calling JS from native code is also possible using the section bridge,
+after you registered your handlers in JavaScript with ``axemas.register``:
+
+.. code-block:: javascript
+
+    axemas.register("handler_name", function(data, callback) {
+        callback({data: data});
+    });
+
+Calling ``handler_name`` from native code from a ``SectionController``
+is possibile using the javascript bridge ``callHandler``:
+
+.. code-block:: objc
+
+    [self.section.bridge callHandler:@"handler_name"
+                                data:@{@"key": @"value"}
+                    responseCallback:^(id responseData) {
+            NSLog(@"Callback with responseData: %@", responseData);
+    }];
+
+``SectionController`` available callbacks:
+
+- *sectionDidLoad* triggered when the webpage finished loading
+- *sectionWillLoad* just before the webpage will start to load
+- *sectionViewWillAppear* when the section is going to be displayed to the user.
+- *sectionOnViewCreate:(UIView*)view* when the section view is first created.
+- *(BOOL)isInsideWebView:(CGPoint)point withEvent:(UIEvent*)event* whenever a touch event for the webview happens, can be used to return block events to be trapped by webview.
+- *navigationbarRightButtonAction* Triggered whenever the right button in the navigationBar is pressed.
+
 NavigationSectionsManager
 =========================
 
@@ -152,72 +221,3 @@ system, creates the sections and keeps track of the current *Navigation Controll
 .. objc:method:: (void)removeValueFrom:(NSString*)key
 
     Deletes a value from the application persistent storage.
-
-.. _ios_section_controller:
-
-Section Controllers
-===================
-
-Section controllers permit to attach native code to each section,
-doing so is as simple as subclassing section controllers and
-providing ``sectionWillLoad`` and ``sectionDidLoad`` methods.
-
-Inside those methods it is possible to register additional native
-functions on the javascript bridge.
-
-Inside ``viewWillLoad`` method of ``SectionController`` subclass
-it is possible to register handlers which will be available
-in Javascript using ``axemas.call``:
-
-.. code-block:: objc
-
-    @implementation HomeSectionController
-
-    - (void)sectionWillLoad {
-        [self.section.bridge registerHandler:@"openMap" handler:^(id data, WVJBResponseCallback responseCallback) {
-            UINavigationController *navController = [NavigationSectionsManager activeNavigationController];
-            [navController pushViewController:[[MapViewController alloc] init] animated:YES];
-            
-            if (responseCallback) {
-                responseCallback(nil);
-            }
-        }];
-    }
-
-    @end
-
-Registering the ``SectionController`` for a section can be done
-using the ``NavigationSectionsManager``:
-
-.. code-block:: objc
-
-    [NavigationSectionsManager registerController:[HomeSectionController class] forRoute:@"www/index.html"];
-
-Calling JS from native code is also possible using the section bridge,
-after you registered your handlers in JavaScript with ``axemas.register``:
-
-.. code-block:: javascript
-
-    axemas.register("handler_name", function(data, callback) {
-        callback({data: data});
-    });
-
-Calling ``handler_name`` from native code from a ``SectionController``
-is possibile using the javascript bridge ``callHandler``:
-
-.. code-block:: objc
-
-    [self.section.bridge callHandler:@"handler_name" 
-                                data:@{@"key": @"value"} 
-                    responseCallback:^(id responseData) {
-            NSLog(@"Callback with responseData: %@", responseData);
-    }];
-
-``SectionController`` available callbacks:
-
-- *sectionDidLoad* triggered when the webpage finished loading
-- *sectionWillLoad* just before the webpage will start to load
-- *sectionViewWillAppear* when the section is going to be displayed to the user.
-- *sectionOnViewCreate:(UIView*)view* when the section view is first created.
-- *(BOOL)isInsideWebView:(CGPoint)point withEvent:(UIEvent*)event* whenever a touch event for the webview happens, can be used to return block events to be trapped by webview.
-- *navigationbarRightButtonAction* Triggered whenever the right button in the navigationBar is pressed.
