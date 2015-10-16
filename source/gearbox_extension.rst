@@ -23,7 +23,7 @@ Usage
 Run the following command to generate a project called ``new_project`` inside the directory where you want to
 create the new project::
 
-     (axemas_builder)$ gearbox axemas-setup -n ProjectName -p com.company.example
+     (axemas_builder)$ gearbox axemas-quickstart -n ProjectName -p com.company.example
 
 Project structure
 -----------------

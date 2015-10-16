@@ -57,3 +57,31 @@ and forcefully trigger a ``sectionFragmentWillResume`` each time the sidebar is 
         }
     }
     
+	
+Disabling Sidebar current menu to reload view
+=============================================
+
+Js
+--
+
+In order to disable view reloading when click on sidebar menù you must do the check section side, you can achieve using 
+html tag attribute and check the attribute when you click the menù item::
+
+	<div class="menu-item" active="true" id="dashboard-menu-item">Dashboard</div>
+	<div class="menu-item" id="profile-menu-item">Profile</div>
+	<div class="menu-item" id="contacts-menu-item">Contacts</div>
+	
+	<script>
+	var dashboardMenuItem = $('#dashboard-menu-item')
+	dashboardMenuItem.on('singletap', function () {
+		if (! dashboardMenuItem.attr("active")) {
+			axemas.goto({
+				'url': 'www/sections/dashboard/section.html',
+				'title': 'Dashboard'
+			});
+			$(".menu-item").removeAttr("active");
+			dashboardMenuItem.attr("active", "true");
+		}
+	});
+	
+	</script>

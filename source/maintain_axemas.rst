@@ -42,8 +42,8 @@ If you want to release demo apps remember to make necessary fixes, tag version a
 Release Repository Update
 -------------------------
 
-Same as for the Debug Project Update, this will update the repository that the ``gearbox axemas-setup``
-command needs to clone in order to quickstart a new project
+Same as for the Debug Project Update, this will update the repository that the 
+``gearbox axemas-quickstart`` command needs to clone in order to quickstart a new project
 (releases folder must be in the same parent folder or will be cloned inside ../releases, 
 be careful if you have pending changes)::
 
