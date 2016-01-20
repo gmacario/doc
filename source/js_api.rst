@@ -38,7 +38,7 @@ The **payload** structure is shared between JavaScript, Objective C and Java, an
     - ``url`` contains the local or remote address from which the WebView must load the content
     - ``title`` (optional) is the tile show in the application's ViewController / Action Bar.
     - ``toggleSidebarIcon`` (optional) is the sidebar's icon to be displayed and if missing a button to open the sidebar will not be created
-    - ``actionBarRightIcon`` (optional) icon to display as a button on the right of the actionbar inside the target section, pressing the button triggers the ``navigationbarRightButtonAction`` event on section controllers.
+    - ``actionbarRightIcon`` (optional) icon to display as a button on the right of the actionbar inside the target section, pressing the button triggers the ``navigationbarRightButtonAction`` event on section controllers.
     - ``stackMaintainedElements`` (optional) instructs the navigation stack to pop all views and maintain the last X ``sections`` indicated on the bottom of the stack; it is ill advised to use in conjunction with ``stackPopElements``
     - ``stackPopElements`` (optional) instructs the navigation stack to pop the first X ``sections``; it is ill advised to use in conjunction with ``stackMaintainedElements``
     - ``animation`` (optional) only supported on iOS platform, can be used to change the default push/pop animation in one of ``"fade"`` or ``"slidein"`` values
