@@ -195,6 +195,10 @@ system, creates the sections and keeps track of the current *Navigation Controll
         - ``FrontViewPosition frontViewPosition``
         - ``(void)setFrontViewPosition:(FrontViewPosition)frontViewPosition animated:(BOOL)animated``
 
+.. objc:method:: (void) setSidebarButtonVisibility:(BOOL)visible
+
+    Hides/Shows the sidebar button in the navigationbar
+
 .. objc:method:: (void)goto:(NSDictionary*)data animated:(BOOL)animated
 
     Pushes on the view navigation stack the given  :ref:`ios_section_controller`. This works like
