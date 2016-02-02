@@ -16,6 +16,7 @@ The JavaScript module ``axemas.js`` permits interaction with the native code of 
     - storeData
     - fetchData
     - removeData
+    - log
 
 .. _js_goto:
 
@@ -113,7 +114,7 @@ Uses the ``navigator.userAgent`` object to determine if the current platform. Re
 storeData
 ---------
 
-Uses the WebView's ``localSotrage`` for key/value storing. Data stored will be available next time the application is launched::
+Uses the Native/WebView's ``localSotrage`` for key/value storing. Data stored will be available next time the application is launched::
 
     axemas.storeData("key","only_string_values");
 
@@ -130,3 +131,17 @@ removeData
 Permanently removes the previously saved data from the locationStorage::
 
     axemas.removeData("key")
+
+log
+----------
+
+Utility for use native and javascript log system::
+
+    axemas.log("Hello World");
+
+or::
+    
+    axemas.log({'tag': 'CustomTAG', 'message': "Hello World"});
+
+- ``tag`` is the tag for Android, default is AXEMAS_LOG
+- ``message`` is the message of the log as String
