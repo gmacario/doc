@@ -117,6 +117,7 @@ is possibile using the javascript bridge ``callHandler``:
 - *sectionDidLoad* triggered when the webpage finished loading
 - *sectionWillLoad* just before the webpage will start to load
 - *sectionViewWillAppear* when the section is going to be displayed to the user.
+- *sectionViewWillDisappear* when the section is going to disappear to the user.
 - *sectionOnViewCreate:(UIView*)view* when the section view is first created.
 - *(BOOL)isInsideWebView:(CGPoint)point withEvent:(UIEvent*)event* whenever a touch event for the webview happens, can be used to return block events to be trapped by webview.
 - *navigationbarRightButtonAction* Triggered whenever the right button in the navigationBar is pressed.
