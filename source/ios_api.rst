@@ -196,7 +196,7 @@ system, creates the sections and keeps track of the current *Navigation Controll
         - ``FrontViewPosition frontViewPosition``
         - ``(void)setFrontViewPosition:(FrontViewPosition)frontViewPosition animated:(BOOL)animated``
 
-.. objc:method:: (void) setSidebarButtonVisibility:(BOOL)visible
+.. objc:method:: (void)setSidebarButtonVisibility:(BOOL)visible
 
     Hides/Shows the sidebar button in the navigationbar
 
