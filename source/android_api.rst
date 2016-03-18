@@ -68,7 +68,7 @@ in Javascript using ``axemas.call``:
 
 .. code-block:: java
 
-    this.section.getJSBridge().registerHandler("openMap", new JavascriptBridge.Handler() {
+    this.getSection().getJSBridge().registerHandler("openMap", new JavascriptBridge.Handler() {
         @Override
         public void call(Object data, JavascriptBridge.Callback callback) {
 
@@ -101,7 +101,7 @@ is possibile using the javascript bridge ``callHandler``:
 
 .. code-block:: java
 
-    this.section.getJSBridge().callJS("send-passenger-count", data, new JavascriptBridge.AndroidCallback() {
+    this.getSection().getJSBridge().callJS("send-passenger-count", data, new JavascriptBridge.AndroidCallback() {
         @Override
         public void call(JSONObject data) {
             Log.d("axemas", "Callback with responseData: "+ data.toString());
