@@ -40,7 +40,7 @@ Basic Project Introduction
 
 By default AXEMAS will create for you a basic application for **iOS** and **Android**.
 Content of the application will be available inside ``www`` directory and the application
-will load ``www/sections/index/index.html`` on startup.
+will load ``www/sections/index/index.html`` on startup.
 
 The application can be run by simply opening in *Android Studio* or *XCode* the
 ``android`` and ``ios`` projects inside the newly created application directory and
