@@ -8,7 +8,7 @@ AXEMAS framework
 Repositories Structure
 ----------------------
 
-The project is divided in 5 repositories::
+The project is divided into 5 repositories::
 
     website
     examples
@@ -35,8 +35,8 @@ To update the ``Android`` and the ``iOS`` demo projects use the following comman
     ./update_debug
 
 Il will delete all the old files in the iOS and Android projects and copy the new library files;
-native binraies and HTML.
-If you want to release demo apps remember to make necessary fixes, tag version and push everything
+native binaries and HTML.
+If you want to release demo apps remember to make necessary fixes, tag version and push everything.
 
 
 Release Repository Update
@@ -49,7 +49,7 @@ be careful if you have pending changes)::
 
     ./update_release
 
-If you want to release new version remember to commit, tag version and push everything 
+If you want to release new version remember to commit, tag version and push everything.
 
     
 Android AXEMAS library
